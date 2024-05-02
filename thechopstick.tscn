@@ -1,0 +1,333 @@
+[gd_scene load_steps=15 format=3 uid="uid://p7ry7c34tav5"]
+
+[ext_resource type="Script" path="res://WorldEnvironment.gd" id="1_fxt6v"]
+[ext_resource type="Script" path="res://chopsticks.gd" id="2_btvbc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1qib"]
+albedo_color = Color(0.964706, 0.694118, 0.576471, 1)
+metallic = 0.18
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15jrc"]
+albedo_color = Color(1, 0.72549, 0.619608, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0452s"]
+radius = 0.76
+height = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfmo6"]
+albedo_color = Color(0.231373, 0.639216, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_mbdlq"]
+radius = 0.696
+height = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1pmt"]
+albedo_color = Color(0.886275, 0.415686, 0.313726, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_pyrx5"]
+height = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnlmr"]
+albedo_color = Color(0, 0.262745, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_k0thj"]
+radius = 1.501
+height = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eirr8"]
+albedo_color = Color(0.321569, 0.32549, 0.898039, 1)
+
+[sub_resource type="Animation" id="Animation_owxjr"]
+resource_name = "mirrors moving"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../WorldEnvironment/mirror:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.0405091, 0), Vector3(0, 0.66895, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../WorldEnvironment/mirror:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 3.31157), Vector3(0, 2.80357, 1.66151)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../WorldEnvironment/mirror2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.109812), Vector3(0, 0, 32.0228)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../WorldEnvironment/mirror2:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.287441, 1.30353, 0.802762), Vector3(0.287441, 1.30353, 0.802762)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../WorldEnvironment/mirror3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-18.555, 0, 6.53983), Vector3(0, 0, 6.53983)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../WorldEnvironment/mirror3:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.45, 1.45, 1.45)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e4t5m"]
+_data = {
+"mirrors moving": SubResource("Animation_owxjr")
+}
+
+[node name="lights and camera" type="Node3D"]
+transform = Transform3D(-0.449428, -0.893316, 0, 0.893316, -0.449428, 0, 0, 0, 1, 16.365, 8.49475, -3.08859)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.66245, 0.0540533, -0.747154, -0.748947, -0.0271943, 0.662072, 0.0154689, 0.998168, 0.0584979, 13.359, 13.659, 3.08859)
+light_color = Color(0.964706, 0.329412, 0, 1)
+light_energy = 3.798
+light_indirect_energy = 1.16
+spot_range = 6.49078
+spot_angle = 74.54
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(0.00528998, 0.897255, 0.44148, 0.002326, -0.441496, 0.89726, 0.999983, -0.0037196, -0.00442252, 0.858129, 0.685144, -0.0806541)
+light_color = Color(0.745098, 0.909804, 0.960784, 1)
+light_energy = 2.057
+light_indirect_energy = 8.838
+light_volumetric_fog_energy = 1.565
+light_size = 0.101
+light_specular = 0.0
+omni_range = 13.5854
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.00528998, 0.897255, 0.44148, 0.002326, -0.441496, 0.89726, 0.999983, -0.0037196, -0.00442252, 10.6321, 32.6203, 3.37955)
+fov = 63.2083
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+script = ExtResource("1_fxt6v")
+
+[node name="bowl" type="Node3D" parent="WorldEnvironment"]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WorldEnvironment/bowl"]
+transform = Transform3D(2.27, 0, 0, 0, 2.27, 0, 0, 0, 2.27, -0.000196755, -0.157211, -0.00308633)
+material_override = SubResource("StandardMaterial3D_x1qib")
+polygon = PackedVector2Array(-0.57642, 0.209258, 0, 1, 0.863951, 0.992917, 0.771366, 0.545723)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 64
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="WorldEnvironment/bowl/CSGPolygon3D"]
+transform = Transform3D(1.07, 0, 0, 0, 0.603, 0, 0, 0, 1.07, 0, 0.941688, 0)
+material_override = SubResource("StandardMaterial3D_x1qib")
+operation = 2
+radius = 0.756863
+radial_segments = 100
+rings = 100
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/bowl/CSGPolygon3D/CSGSphere3D"]
+material_override = SubResource("StandardMaterial3D_15jrc")
+mesh = SubResource("SphereMesh_0452s")
+
+[node name="bowl2" type="Node3D" parent="WorldEnvironment"]
+transform = Transform3D(2.56994, 0, 0, 0, 1.19345, 0, 0, 0, 1.39272, 0, -0.711767, 6.37602)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WorldEnvironment/bowl2"]
+transform = Transform3D(2.27, 0, 0, 0, 2.27, 0, 0, 0, 2.27, -0.000196934, -0.00809699, -0.00308657)
+material_override = SubResource("StandardMaterial3D_x1qib")
+polygon = PackedVector2Array(-0.27563, 0.0546677, 0, 1, 0.822656, 0.898853, 0.713725, 0.634142)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 64
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="WorldEnvironment/bowl2/CSGPolygon3D"]
+transform = Transform3D(1.07, 0, 0, 0, 0.603, 0, 0, 0, 1.07, 0, 1.02143, 0)
+material_override = SubResource("StandardMaterial3D_x1qib")
+operation = 2
+radius = 0.756863
+radial_segments = 100
+rings = 100
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/bowl2/CSGPolygon3D/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.336882, 0)
+material_override = SubResource("StandardMaterial3D_lfmo6")
+mesh = SubResource("SphereMesh_mbdlq")
+
+[node name="bowl3" type="Node3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49479, 0, -6.10825)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WorldEnvironment/bowl3"]
+transform = Transform3D(2.27, 0, 0, 0, 2.27, 0, 0, 0, 2.27, -0.000196934, -0.157211, -0.00308657)
+material_override = SubResource("StandardMaterial3D_x1qib")
+polygon = PackedVector2Array(0.465711, 0.209539, 0, 1, 0.863951, 0.992917, 0.761683, 0.459969)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 6
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="WorldEnvironment/bowl3/CSGPolygon3D"]
+transform = Transform3D(1.07, 0, 0, 0, 0.603, 0, 0, 0, 1.07, 0, 0.922028, 0)
+material_override = SubResource("StandardMaterial3D_x1qib")
+operation = 2
+radius = 0.55816
+radial_segments = 100
+rings = 50
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/bowl3/CSGPolygon3D/CSGSphere3D"]
+transform = Transform3D(1.16, 0, 0, 0, 1.16, 0, 0, 0, 1.16, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_m1pmt")
+mesh = SubResource("SphereMesh_pyrx5")
+
+[node name="bowl4" type="Node3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01913, 0, -6.10825)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="WorldEnvironment/bowl4"]
+transform = Transform3D(2.27, 0, 0, 0, 2.27, 0, 0, 0, 2.27, -0.000196934, -0.157211, -0.00308657)
+material_override = SubResource("StandardMaterial3D_x1qib")
+polygon = PackedVector2Array(0.465711, 0.209539, 0, 1, 0.863951, 0.992917, 0.761683, 0.459969)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 64
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="WorldEnvironment/bowl4/CSGPolygon3D"]
+transform = Transform3D(1.336, 0, 0, 0, 0.753, 0, 0, 0, 1.336, 0, 1.03969, 0)
+material_override = SubResource("StandardMaterial3D_x1qib")
+operation = 2
+radius = 0.55816
+radial_segments = 100
+rings = 50
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/bowl4/CSGPolygon3D/CSGSphere3D"]
+transform = Transform3D(0.36, 0, 0, 0, 0.36, 0, 0, 0, 0.36, 2.08165e-12, -0.17, 2.08165e-12)
+material_override = SubResource("StandardMaterial3D_vnlmr")
+mesh = SubResource("SphereMesh_k0thj")
+
+[node name="chopsticks" type="Node3D" parent="WorldEnvironment"]
+transform = Transform3D(0.919438, 0.393236, 0, -0.393236, 0.919438, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("2_btvbc")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="WorldEnvironment/chopsticks"]
+transform = Transform3D(-0.944953, -0.326277, 0.0246613, 0.326277, -0.945265, -0.00413717, 0.0246613, 0.00413696, 0.999687, -0.000196755, 3.14709, 0.911331)
+radius = 0.0674968
+height = 2.37598
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="WorldEnvironment/chopsticks"]
+transform = Transform3D(-0.576682, -0.745229, -0.334772, 0.814743, -0.554833, -0.168386, -0.0602568, -0.369858, 0.927132, -0.0116508, 3.14709, 0.579532)
+radius = 0.0674968
+height = 2.37598
+
+[node name="floor" type="Node3D" parent="WorldEnvironment"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/floor"]
+transform = Transform3D(16.96, 0, 0, 0, 0.96, 0, 0, 0, 19.69, 1.16766, -0.204232, 0)
+material_override = SubResource("StandardMaterial3D_eirr8")
+size = Vector3(0.862305, 1, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/floor"]
+transform = Transform3D(13.8702, 0, -11.3311, 0, 0.96, 0, 9.76008, 0, 16.1028, -10.822, -0.204232, 3.96588)
+material_override = SubResource("StandardMaterial3D_eirr8")
+size = Vector3(0.654785, 1, 0.597168)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="WorldEnvironment/floor"]
+transform = Transform3D(-3.78719, 0, -19.1928, 0, 0.96, 0, 16.5317, 0, -4.3968, -8.64813, -0.204232, -8.0085)
+material_override = SubResource("StandardMaterial3D_eirr8")
+size = Vector3(0.654785, 1, 0.597168)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="WorldEnvironment/floor"]
+transform = Transform3D(-3.78719, 0, -19.1928, 0, 0.96, 0, 16.5317, 0, -4.3968, 9.07182, -0.204232, -6.69925)
+material_override = SubResource("StandardMaterial3D_eirr8")
+size = Vector3(0.443604, 1, 0.398682)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="WorldEnvironment/floor"]
+transform = Transform3D(-16.596, 0, -4.05747, 0, 0.96, 0, 3.4949, 0, -19.2674, 6.55806, -0.204232, 9.07063)
+material_override = SubResource("StandardMaterial3D_eirr8")
+size = Vector3(0.542114, 1, 0.308624)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="WorldEnvironment/floor"]
+transform = Transform3D(-16.304, 0, 5.42333, 0, 0.96, 0, -4.67139, 0, -18.9284, 13.2934, -0.204232, 2.03594)
+material_override = SubResource("StandardMaterial3D_eirr8")
+size = Vector3(0.542114, 1, 0.753922)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="WorldEnvironment/floor"]
+transform = Transform3D(14.1438, 0, -10.8656, 0, 0.96, 0, 9.35912, 0, 16.4205, -9.67544, -0.204232, 11.7699)
+material_override = SubResource("StandardMaterial3D_eirr8")
+size = Vector3(1.04883, 1, 0.523926)
+
+[node name="mirror" type="Node3D" parent="WorldEnvironment"]
+transform = Transform3D(0.784473, 0, 0.620162, 0, 1, 0, -0.620162, 0, 0.784473, 0, 2.80357, 1.66151)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/mirror"]
+transform = Transform3D(-0.449428, -0.893316, 0, 0.893316, -0.449428, 0, 0, 0, 1, 16.365, 8.49475, -3.08859)
+size = Vector3(10.9872, 0.357422, 9.50098)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/mirror"]
+transform = Transform3D(-0.449428, -0.893316, 0, 0.893316, -0.449428, 0, 0, 0, 1, 16.2898, 8.33025, -2.92892)
+operation = 2
+size = Vector3(10.0996, 0.402355, 7.81836)
+
+[node name="mirror2" type="Node3D" parent="WorldEnvironment"]
+transform = Transform3D(0.38015, 3.6546e-08, 0.924925, 0.689767, 0.66622, -0.283499, -0.616203, 0.745755, 0.253264, 0, 0, 32.0228)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/mirror2"]
+transform = Transform3D(-0.34606, -0.893317, 0, 0.687854, -0.449428, 0, 0, 0, 0.64, 16.365, 8.49475, -3.08859)
+size = Vector3(10.9872, 0.357422, 9.50098)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/mirror2"]
+transform = Transform3D(-0.274151, -0.893317, -5.6962e-09, 0.544923, -0.449428, 0, -1.90058e-09, -1.13072e-08, 0.73, 16.2898, 8.33025, -2.92892)
+operation = 2
+size = Vector3(10.0996, 0.402355, 7.81836)
+
+[node name="mirror3" type="Node3D" parent="WorldEnvironment"]
+transform = Transform3D(1.42968, -5.53959e-09, -0.24189, -0.0657236, 1.39545, -0.388458, 0.23279, 0.393978, 1.3759, 0, 0, 6.53983)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WorldEnvironment/mirror3"]
+transform = Transform3D(-0.229208, -0.893317, 0, 0.455591, -0.449428, 0, 0, 0, 0.57, 16.365, 8.49475, -3.08859)
+size = Vector3(10.9872, 0.357422, 9.50098)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="WorldEnvironment/mirror3"]
+transform = Transform3D(-0.247185, -0.893317, 0, 0.491324, -0.449428, 0, 0, 0, 0.53, 16.2898, 8.33025, -2.92892)
+operation = 2
+size = Vector3(10.0996, 0.402355, 7.81836)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Camera3D")
+libraries = {
+"": SubResource("AnimationLibrary_e4t5m")
+}
